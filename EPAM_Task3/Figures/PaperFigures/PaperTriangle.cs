@@ -76,7 +76,7 @@ namespace EPAM_Task3.Figures.PaperFigures
         /// <inheritdoc cref="Triangle.GetHashCode"/>
         public override int GetHashCode()
         {
-            return (base.GetHashCode() + (Color.GetHashCode() >> 3));
+            return (base.GetHashCode() ^ Color.GetHashCode());
         }
 
         /// <inheritdoc cref="Triangle.ToString"/>

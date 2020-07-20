@@ -73,7 +73,7 @@ namespace EPAM_Task3.Figures.UsualFigures
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            return Sides.Select(obj => (int)obj >> 4).Sum();
+            return Sides.Select(obj => obj.GetHashCode() >> 4).Sum();
         }
 
         /// <summary>

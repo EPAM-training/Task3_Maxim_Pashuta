@@ -209,5 +209,55 @@ namespace EPAM_Task3
 
             return skinFigures;
         }
+
+        /// <summary>
+        /// Method for equal the current object with the specified object.
+        /// </summary>
+        /// <param name="obj">Any object</param>
+        /// <returns>True or False</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            var box = (Box)obj;
+
+            for (var i = 0; i < GetCountFigures(); i++)
+            {
+                if (!Figures[i].Equals(box.Figures[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The method calculates the hash code for the current object.
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            return Figures.Select(obj => obj.GetHashCode() >> 20).Sum();
+        }
+
+        /// <summary>
+        /// The method creates and returns a string representation of the object.
+        /// </summary>
+        /// <returns>String representation</returns>
+        public override string ToString()
+        {
+            string boxString = "Figures:\n\n";
+
+            foreach (IFigure figure in Figures)
+            {
+                boxString += figure.ToString() + "\n\n";
+            }
+
+            return boxString;
+        }
     }
 }

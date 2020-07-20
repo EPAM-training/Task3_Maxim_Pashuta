@@ -73,7 +73,7 @@ namespace EPAM_Task3.Figures.PaperFigures
         /// <inheritdoc cref="Circle.GetHashCode"/>
         public override int GetHashCode()
         {
-            return (base.GetHashCode() + (Color.GetHashCode() >> 2));
+            return (base.GetHashCode() ^ Color.GetHashCode());
         }
 
         /// <inheritdoc cref="Circle.ToString"/>

@@ -62,7 +62,7 @@ namespace EPAM_Task3.Figures.UsualFigures
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            return (int)Radius >> 2;
+            return (Radius.GetHashCode() >> 2);
         }
 
         /// <summary>
