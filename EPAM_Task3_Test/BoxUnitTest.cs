@@ -22,6 +22,7 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void AddFigure_WhenFigureIsInBox_AddNewFigure()
         {
+
             var figures = new List<IFigure>
             {
                 new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
