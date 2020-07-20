@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Figures>
+  <SkinCircle>
+    <Radius>7</Radius>
+  </SkinCircle>
+  <SkinRectangle>
+    <Sides>3 7</Sides>
+  </SkinRectangle>
+</Figures>
