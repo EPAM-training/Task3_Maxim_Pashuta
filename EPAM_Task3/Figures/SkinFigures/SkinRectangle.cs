@@ -26,7 +26,7 @@ namespace EPAM_Task3.Figures.SkinFigures
 
             if (area > figure.GetArea())
             {
-                throw new ArgumentException("You cannot create a shape because the original shape is smaller.", "sidesCollection");
+                throw new ArgumentException("You cannot create a shape because the original shape is smaller.");
             }
         }
     }

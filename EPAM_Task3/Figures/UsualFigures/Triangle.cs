@@ -17,7 +17,7 @@ namespace EPAM_Task3.Figures.UsualFigures
         {
             if (sidesCollection.Count() != 3)
             {
-                throw new ArgumentException("The count of sides is not equal to three.", "sides");
+                throw new ArgumentException("The count of sides is not equal to three.");
             }
 
             Sides = sidesCollection.ToList();

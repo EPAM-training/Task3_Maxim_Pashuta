@@ -1,6 +1,6 @@
 ﻿using EPAM_Task3.Enums;
 using EPAM_Task3.Figures.PaperFigures;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
@@ -9,16 +9,14 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
     /// <summary>
     /// Class for testing the class PaperCircle.
     /// </summary>
-    [TestClass]
     public class PaperCircleUnitTest
     {
         /// <summary>
         /// The method tests constructor when old area more new area.
         /// </summary>
-        [TestMethod]
-        public void PaperCircle_WhenOldAreaMoreNewArea_CreatePaperCircle()
+        [TestCase(12, 14, ExpectedResult = 5)]
+        public void PaperCircle_WhenOldAreaMoreNewArea_CreatePaperCircle(params double[] sidesPaperRectangle)
         {
-            var sidesPaperRectangle = new List<double> { 12, 14 };
             var radiusPaperCircle = 5;
 
             var paperRectangle = new PaperRectangle(sidesPaperRectangle, Color.Black);

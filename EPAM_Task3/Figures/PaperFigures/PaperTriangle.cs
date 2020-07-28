@@ -35,7 +35,7 @@ namespace EPAM_Task3.Figures.PaperFigures
 
             if (area > figure.GetArea())
             {
-                throw new ArgumentException("You cannot create a shape because the original shape is smaller.", "sidesCollection");
+                throw new ArgumentException("You cannot create a shape because the original shape is smaller.");
             }
 
             Color = figure.Color;
@@ -53,7 +53,7 @@ namespace EPAM_Task3.Figures.PaperFigures
         {
             if (!IsRecolor)
             {
-                throw new ArgumentException("You can only recolor a shape once.", "color");
+                throw new ArgumentException("You can only recolor a shape once.");
             }
 
             Color = color;

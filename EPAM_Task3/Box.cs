@@ -52,7 +52,7 @@ namespace EPAM_Task3
 
                 if (Figures[i].Equals(figure))
                 {
-                    throw new ArgumentException("The box already contains this shape.", "figure");
+                    throw new ArgumentException("The box already contains this shape.");
                 }
             }
         }

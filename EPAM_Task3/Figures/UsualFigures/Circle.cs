@@ -16,7 +16,7 @@ namespace EPAM_Task3.Figures.UsualFigures
         {
             if (radius <= 0)
             {
-                throw new ArgumentException("The argument less or equal a zero.", "radius");
+                throw new ArgumentException("The argument less or equal a zero.");
             }
 
             Radius = radius;
