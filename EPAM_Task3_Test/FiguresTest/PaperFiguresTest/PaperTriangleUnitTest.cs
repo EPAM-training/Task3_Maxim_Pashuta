@@ -18,9 +18,12 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void PaperTriangle_WhenOldAreaMoreNewArea_CreatePaperCircle()
         {
-            var paperCircle = new PaperCircle(5, Color.Red);
-            var result = new PaperTriangle(new List<double> { 3, 4, 5 }, paperCircle);
-            var actualResult = new PaperTriangle(new List<double> { 3, 4, 5 }, Color.Red);
+            var sidesPaperTriangle = new List<double> { 3, 4, 5 };
+            var radiusPaperCircle = 5;
+
+            var paperCircle = new PaperCircle(radiusPaperCircle, Color.Red);
+            var result = new PaperTriangle(sidesPaperTriangle, paperCircle);
+            var actualResult = new PaperTriangle(sidesPaperTriangle, Color.Red);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -32,8 +35,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void PaperCircle_WhenOldAreaLessNewArea_GetArgumentException()
         {
-            var paperCircle = new PaperCircle(5, Color.Red);
-            var result = new PaperTriangle(new List<double> { 13, 14, 15 }, paperCircle);
+            var sidesPaperTriangle = new List<double> { 13, 14, 15 };
+            var radiusPaperCircle = 5;
+
+            var paperCircle = new PaperCircle(radiusPaperCircle, Color.Red);
+            var result = new PaperTriangle(sidesPaperTriangle, paperCircle);
         }
 
         /// <summary>
@@ -42,10 +48,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void Test_GetArea()
         {
-            var sidesList = new List<double> { 6, 8, 6 };
-            var rectangle = new PaperTriangle(sidesList, Color.Red);
-            double result = rectangle.GetArea();
-            double actualResult = 17.888543;
+            var sidesPaperTriangle = new List<double> { 6, 8, 6 };
+
+            var paperTriangle = new PaperTriangle(sidesPaperTriangle, Color.Red);
+            double result = paperTriangle.GetArea();
+            var actualResult = 17.888543;
             Assert.AreEqual(result, actualResult, 0.000001);
         }
 
@@ -55,9 +62,10 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void Test_GetPerimeter()
         {
-            var sidesList = new List<double> { 6, 8, 6 };
-            var rectangle = new PaperTriangle(sidesList, Color.Red);
-            double result = rectangle.GetPerimeter();
+            var sidesPaperTriangle = new List<double> { 6, 8, 6 };
+
+            var paperTriangle = new PaperTriangle(sidesPaperTriangle, Color.Red);
+            double result = paperTriangle.GetPerimeter();
             double actualResult = 20;
             Assert.AreEqual(result, actualResult, 0.000001);
         }
@@ -68,10 +76,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void RecolorFigure_WhenFigureIsRecolorForFirstTime_NewColor()
         {
-            var sidesList = new List<double> { 6, 8, 6 };
-            var rectangle = new PaperTriangle(sidesList, Color.Red);
-            rectangle.RecolorFigure(Color.Green);
-            Color result = rectangle.Color;
+            var sidesPaperTriangle = new List<double> { 6, 8, 6 };
+
+            var paperTriangle = new PaperTriangle(sidesPaperTriangle, Color.Red);
+            paperTriangle.RecolorFigure(Color.Green);
+            Color result = paperTriangle.Color;
             Color actualResult = Color.Green;
             Assert.AreEqual(result, actualResult);
         }
@@ -83,10 +92,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void RecolorFigure_WhenFigureIsRecolorNotForFirstTime_GetArgumentException()
         {
-            var sidesList = new List<double> { 6, 8, 6 };
-            var rectangle = new PaperTriangle(sidesList, Color.Red);
-            rectangle.RecolorFigure(Color.Green);
-            rectangle.RecolorFigure(Color.Black);
+            var sidesPaperTriangle = new List<double> { 6, 8, 6 };
+
+            var paperTriangle = new PaperTriangle(sidesPaperTriangle, Color.Red);
+            paperTriangle.RecolorFigure(Color.Green);
+            paperTriangle.RecolorFigure(Color.Black);
         }
     }
 }

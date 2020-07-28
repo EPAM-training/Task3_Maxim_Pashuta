@@ -17,9 +17,12 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void SkinCircle_WhenOldAreaMoreNewArea_CreatePaperCircle()
         {
-            var paperRectangle = new SkinRectangle(new List<double> { 12, 14 });
-            var result = new SkinCircle(5, paperRectangle);
-            var actualResult = new SkinCircle(5);
+            var sidesSkinRectangle = new List<double> { 12, 14 };
+            var radiusSkinCircle = 5;
+
+            var skinRectangle = new SkinRectangle(sidesSkinRectangle);
+            var result = new SkinCircle(radiusSkinCircle, skinRectangle);
+            var actualResult = new SkinCircle(radiusSkinCircle);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -31,8 +34,11 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void SkinCircle_WhenOldAreaLessNewArea_GetArgumentException()
         {
-            var paperRectangle = new SkinRectangle(new List<double> { 4, 6 });
-            var result = new SkinCircle(5, paperRectangle);
+            var sidesSkinRectangle = new List<double> { 4, 6 };
+            var radiusSkinCircle = 5;
+
+            var skinRectangle = new SkinRectangle(sidesSkinRectangle);
+            var result = new SkinCircle(radiusSkinCircle, skinRectangle);
         }
 
         /// <summary>
@@ -41,9 +47,11 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void Test_GetArea()
         {
-            var circle = new SkinCircle(5);
-            double result = circle.GetArea();
-            double actualResult = 78.5398163;
+            var radiusSkinCircle = 5;
+
+            var skinCircle = new SkinCircle(radiusSkinCircle);
+            double result = skinCircle.GetArea();
+            var actualResult = 78.5398163;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
 
@@ -53,9 +61,11 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void Test_GetPerimeter()
         {
-            var circle = new SkinCircle(5);
-            double result = circle.GetPerimeter();
-            double actualResult = 31.4159265;
+            var radiusSkinCircle = 5;
+
+            var skinCircle = new SkinCircle(radiusSkinCircle);
+            double result = skinCircle.GetPerimeter();
+            var actualResult = 31.4159265;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
     }

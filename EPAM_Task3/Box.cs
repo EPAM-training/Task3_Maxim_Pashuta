@@ -74,7 +74,7 @@ namespace EPAM_Task3
         /// <returns>Figure</returns>
         public IFigure GetFigure(int index)
         {
-            var figure = Figures[index];
+            IFigure figure = Figures[index];
             
             for (var i = 0; i < Figures.Length; i++)
             {
@@ -250,7 +250,7 @@ namespace EPAM_Task3
         /// <returns>String representation</returns>
         public override string ToString()
         {
-            string boxString = "Figures:\n\n";
+            var boxString = "Figures:\n\n";
 
             foreach (IFigure figure in Figures)
             {

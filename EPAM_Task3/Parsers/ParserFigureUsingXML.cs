@@ -50,7 +50,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Paper rectangle</returns>
         public static PaperRectangle ParseToPaperRectangleFromXmlElement(XmlTextReader xmlReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             object color = null;
             int count = 0;
             while (count != 2)
@@ -81,7 +81,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Paper triangle</returns>
         public static PaperTriangle ParseToPaperTriangleFromXmlElement(XmlTextReader xmlReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             object color = null;
             int count = 0;
             while (count != 2)
@@ -135,7 +135,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Skin rectangle</returns>
         public static SkinRectangle ParseToSkinRectangleFromXmlElement(XmlTextReader xmlReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             int count = 0;
             while (count != 1)
             {
@@ -159,7 +159,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Skin triangle</returns>
         public static SkinTriangle ParseToSkinTriangleFromXmlElement(XmlTextReader xmlReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             int count = 0;
             while (count != 1)
             {

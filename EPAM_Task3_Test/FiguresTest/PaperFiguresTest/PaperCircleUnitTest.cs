@@ -18,9 +18,12 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void PaperCircle_WhenOldAreaMoreNewArea_CreatePaperCircle()
         {
-            var paperRectangle = new PaperRectangle(new List<double> { 12, 14 }, Color.Black);
-            var result = new PaperCircle(5, paperRectangle);
-            var actualResult = new PaperCircle(5, Color.Black);
+            var sidesPaperRectangle = new List<double> { 12, 14 };
+            var radiusPaperCircle = 5;
+
+            var paperRectangle = new PaperRectangle(sidesPaperRectangle, Color.Black);
+            var result = new PaperCircle(radiusPaperCircle, paperRectangle);
+            var actualResult = new PaperCircle(radiusPaperCircle, Color.Black);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -32,8 +35,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void PaperCircle_WhenOldAreaLessNewArea_GetArgumentException()
         {
-            var paperRectangle = new PaperRectangle(new List<double> { 4, 6 }, Color.Black);
-            var result = new PaperCircle(5, paperRectangle);
+            var sidesPaperRectangle = new List<double> { 4, 6 };
+            var radiusPaperCircle = 5;
+
+            var paperRectangle = new PaperRectangle(sidesPaperRectangle, Color.Black);
+            var result = new PaperCircle(radiusPaperCircle, paperRectangle);
         }
 
         /// <summary>
@@ -42,9 +48,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void Test_GetArea()
         {
-            var circle = new PaperCircle(5, Color.Blue);
+            var radiusPaperCircle = 5;
+
+            var circle = new PaperCircle(radiusPaperCircle, Color.Blue);
             double result = circle.GetArea();
-            double actualResult = 78.5398163;
+            var actualResult = 78.5398163;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
 
@@ -54,9 +62,11 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void Test_GetPerimeter()
         {
-            var circle = new PaperCircle(5, Color.Blue);
+            var radiusPaperCircle = 5;
+
+            var circle = new PaperCircle(radiusPaperCircle, Color.Blue);
             double result = circle.GetPerimeter();
-            double actualResult = 31.4159265;
+            var actualResult = 31.4159265;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
 
@@ -66,7 +76,9 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [TestMethod]
         public void RecolorFigure_WhenFigureIsRecolorForFirstTime_NewColor()
         {
-            var circle = new PaperCircle(5, Color.Blue);
+            var radiusPaperCircle = 5;
+
+            var circle = new PaperCircle(radiusPaperCircle, Color.Blue);
             circle.RecolorFigure(Color.Green);
             Color result = circle.Color;
             Color actualResult = Color.Green;
@@ -80,7 +92,9 @@ namespace EPAM_Task3_Test.FiguresTest.PaperFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void RecolorFigure_WhenFigureIsRecolorNotForFirstTime_GetArgumentException()
         {
-            var circle = new PaperCircle(5, Color.Blue);
+            var radiusPaperCircle = 5;
+
+            var circle = new PaperCircle(radiusPaperCircle, Color.Blue);
             circle.RecolorFigure(Color.Green);
             circle.RecolorFigure(Color.Red);
         }

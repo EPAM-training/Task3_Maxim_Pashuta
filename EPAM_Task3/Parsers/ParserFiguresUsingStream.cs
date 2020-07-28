@@ -53,7 +53,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Paper rectangle</returns>
         public static PaperRectangle ParseToPaperRectangleFromXmlElement(StreamReader streamReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             object color = null;
             int count = 0;
             while (count != 2)
@@ -86,7 +86,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Paper triangle</returns>
         public static PaperTriangle ParseToPaperTriangleFromXmlElement(StreamReader streamReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
             object color = null;
             int count = 0;
             while (count != 2)
@@ -140,7 +140,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Skin rectangle</returns>
         public static SkinRectangle ParseToSkinRectangleFromXmlElement(StreamReader streamReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
 
             string line = streamReader.ReadLine();
             line = line.TrimStart('\t', ' ');
@@ -161,7 +161,7 @@ namespace EPAM_Task3.Parsers
         /// <returns>Skin triangle</returns>
         public static SkinTriangle ParseToSkinTriangleFromXmlElement(StreamReader streamReader)
         {
-            List<double> sides = new List<double>();
+            var sides = new List<double>();
 
             string line = streamReader.ReadLine();
             line = line.TrimStart('\t', ' ');

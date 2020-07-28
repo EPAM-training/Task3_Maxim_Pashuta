@@ -22,14 +22,18 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void AddFigure_WhenFigureIsInBox_AddNewFigure()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            double radius = 7;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            var figure = new SkinCircle(7);
+            var figure = new SkinCircle(radius);
 
             box.AddFigure(figure);
 
@@ -57,14 +61,17 @@ namespace EPAM_Task3_Test
         [ExpectedException(typeof(ArgumentException))]
         public void AddFigure_WhenFigureIsNotInBox_GetArgumentException()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            var figure = new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue);
+            var figure = new PaperTriangle(sidesPaperTriangle, Color.Blue);
 
             box.AddFigure(figure);
         }
@@ -75,16 +82,20 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void ShowFigure_WhenIndexIsNotOutsideArray_GetFigure()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = 1;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
 
-            IFigure result = box.ShowFigure(1);
-            var actualResult = new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue);
+            IFigure result = box.ShowFigure(index);
+            var actualResult = new PaperTriangle(sidesPaperTriangle, Color.Blue);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -96,15 +107,19 @@ namespace EPAM_Task3_Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void ShowFigure_WhenIndexIsOutsideArray_GetArgumentOutOfRangeException()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = 21;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
 
-            box.ShowFigure(21);
+            box.ShowFigure(index);
         }
 
         /// <summary>
@@ -113,17 +128,21 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void GetFigure_WhenIndexIsNotOutsideArray_GetFigureAndDeleteThisFigure()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = 0;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            box.GetFigure(0);
+            box.GetFigure(index);
 
             int result = box.GetCountFigures();
-            int actualResult = 1;
+            var actualResult = 1;
 
             Assert.AreEqual(result, actualResult);
         }
@@ -135,15 +154,19 @@ namespace EPAM_Task3_Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void GetFigure_WhenIndexIsOutsideArray_GetArgumentOutOfRangeException()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = 21;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue),
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
             };
 
             var box = new Box(figures);
 
-            box.GetFigure(21);
+            box.GetFigure(index);
         }
 
         /// <summary>
@@ -152,18 +175,23 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void SetFigure_WhenIndexIsNotOutsideArray_ChangeChosenFigure()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = 0;
+            double radius = 7;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            var figure = new SkinCircle(7);
-            box.SetFigure(0, figure);
+            var figure = new SkinCircle(radius);
+            box.SetFigure(index, figure);
 
-            IFigure result = box.ShowFigure(0);
-            var actualResult = new SkinCircle(7);
+            IFigure result = box.ShowFigure(index);
+            var actualResult = new SkinCircle(radius);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -175,15 +203,20 @@ namespace EPAM_Task3_Test
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void SetFigure_WhenIndexIsOutsideArray_GetArgumentOutOfRangeException()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var index = -10;
+            double radius = 7;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue),
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
             };
 
             var box = new Box(figures);
-            var figure = new SkinCircle(7);
-            box.SetFigure(-10, figure);
+            var figure = new SkinCircle(radius);
+            box.SetFigure(index, figure);
         }
 
         /// <summary>
@@ -192,17 +225,20 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void SearchFigure_WhenFigureIsInBox_GetFigure()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            var figure = new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue);
+            var figure = new PaperTriangle(sidesPaperTriangle, Color.Blue);
 
             IFigure result = box.SearchFigure(figure);
-            var actualResult = new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue);
+            var actualResult = new PaperTriangle(sidesPaperTriangle, Color.Blue);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -213,14 +249,18 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void SearchFigure_WhenFigureIsNotInBox_GetNull()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            double radius = 7;
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
-            var figure = new SkinCircle(7);
+            var figure = new SkinCircle(radius);
 
             IFigure result = box.SearchFigure(figure);
             IFigure actualResult = null;
@@ -234,16 +274,19 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void Test_GetCountFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
 
             int result = box.GetCountFigures();
-            int actualResult = 2;
+            var actualResult = 2;
 
             Assert.AreEqual(result, actualResult);
         }
@@ -254,10 +297,13 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void Test_GetTotalPerimeter()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
@@ -274,10 +320,13 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void Test_GetTotalArea()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue)
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue)
             };
 
             var box = new Box(figures);
@@ -294,13 +343,19 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void Test_GetCircles()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var radiusPaperCircle = 4;
+            var radiusSkinCircle = 3;
+            var sidesSkinRectangle = new List<double> { 3, 6 };
+
             var figures = new IFigure[]
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue),
-                new PaperCircle(4, Color.Red),
-                new SkinCircle(3),
-                new SkinRectangle(new List<double> { 3, 6 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new PaperCircle(radiusPaperCircle, Color.Red),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
             var box = new Box(figures);
@@ -308,8 +363,8 @@ namespace EPAM_Task3_Test
             var result = box.GetCircles();
             var actualResult = new List<Circle>()
             {
-                new PaperCircle(4, Color.Red),
-                new SkinCircle(3)
+                new PaperCircle(radiusPaperCircle, Color.Red),
+                new SkinCircle(radiusSkinCircle)
             };
 
             CollectionAssert.AreEqual(result, actualResult);
@@ -321,13 +376,19 @@ namespace EPAM_Task3_Test
         [TestMethod]
         public void Test_GetSkinFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 7 };
+            var radiusPaperCircle = 4;
+            var radiusSkinCircle = 3;
+            var sidesSkinRectangle = new List<double> { 3, 6 };
+
             var figures = new IFigure[]
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 7 }, Color.Blue),
-                new PaperCircle(4, Color.Red),
-                new SkinCircle(3),
-                new SkinRectangle(new List<double> { 3, 6 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new PaperCircle(radiusPaperCircle, Color.Red),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
             var box = new Box(figures);
@@ -335,8 +396,8 @@ namespace EPAM_Task3_Test
             var result = box.GetSkinFigures();
             var actualResult = new List<ISkinFigure>()
             {
-                new SkinCircle(3),
-                new SkinRectangle(new List<double> { 3, 6 })
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
             CollectionAssert.AreEqual(result, actualResult);

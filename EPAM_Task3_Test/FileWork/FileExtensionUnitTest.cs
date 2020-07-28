@@ -21,15 +21,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void WriteFiguresXmlWriter_WhenTypeMaterialIsSkin_WriteSkinFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
             FileExtension.WriteFiguresXmlWriter(figures, filePath, typeof(ISkinFigure));
 
             string result;
@@ -58,15 +63,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void WriteFiguresXmlWriter_WhenTypeMaterialIsPaper_WritePaperFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
             FileExtension.WriteFiguresXmlWriter(figures, filePath, typeof(IPaperFigure));
 
             string result;
@@ -97,15 +107,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void WriteFiguresXmlWriter_WhenTypeMaterialIsFigure_WriteAllFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
             FileExtension.WriteFiguresXmlWriter(figures, filePath, typeof(IFigure));
 
             string result;
@@ -142,15 +157,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void Test_ReadFiguresXmlReader()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\Figures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\Figures.xml";
             List<IFigure> result = FileExtension.ReadFiguresXmlReader(filePath);
             List<IFigure> actualResult = figures;
 
@@ -163,15 +183,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void WriteFiguresStreamWriter_WhenTypeMaterialIsFigure_WriteAllFigures()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\NewFigures.xml";
             FileExtension.WriteFiguresStreamWriter(figures, filePath, typeof(IFigure));
 
             string result;
@@ -208,15 +233,20 @@ namespace EPAM_Task3_Test.FileWork
         [TestMethod]
         public void Test_ReadFiguresStreamReader()
         {
+            var sidesPaperRectangle = new List<double> { 2, 4 };
+            var sidesPaperTriangle = new List<double> { 2, 4, 5 };
+            var radiusSkinCircle = 7;
+            var sidesSkinRectangle = new List<double> { 3, 7 };
+
             var figures = new List<IFigure>
             {
-                new PaperRectangle(new List<double> { 2, 4 }, Color.Black),
-                new PaperTriangle(new List<double> { 2, 4, 5 }, Color.Blue),
-                new SkinCircle(7),
-                new SkinRectangle(new List<double> { 3, 7 })
+                new PaperRectangle(sidesPaperRectangle, Color.Black),
+                new PaperTriangle(sidesPaperTriangle, Color.Blue),
+                new SkinCircle(radiusSkinCircle),
+                new SkinRectangle(sidesSkinRectangle)
             };
 
-            string filePath = @"..\..\..\..\EPAM_Task3\Resources\Figures.xml";
+            var filePath = @"..\..\..\..\EPAM_Task3\Resources\Figures.xml";
             List<IFigure> result = FileExtension.ReadFiguresStreamReader(filePath);
             List<IFigure> actualResult = figures;
 

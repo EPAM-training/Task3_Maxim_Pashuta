@@ -17,9 +17,12 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void SkinRectangle_WhenOldAreaMoreNewArea_CreatePaperCircle()
         {
-            var skinCircle = new SkinCircle(5);
-            var result = new SkinRectangle(new List<double> { 2, 4 }, skinCircle);
-            var actualResult = new SkinRectangle(new List<double> { 2, 4 });
+            var sidesSkinRectangle = new List<double> { 2, 4 };
+            var radiusSkinCircle = 5;
+
+            var skinCircle = new SkinCircle(radiusSkinCircle);
+            var result = new SkinRectangle(sidesSkinRectangle, skinCircle);
+            var actualResult = new SkinRectangle(sidesSkinRectangle);
 
             Assert.AreEqual(result, actualResult);
         }
@@ -31,8 +34,11 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [ExpectedException(typeof(ArgumentException))]
         public void SkinRectangle_WhenOldAreaLessNewArea_GetArgumentException()
         {
-            var skinCircle = new SkinCircle(5);
-            var result = new SkinRectangle(new List<double> { 12, 14 }, skinCircle);
+            var sidesSkinRectangle = new List<double> { 12, 14 };
+            var radiusSkinCircle = 5;
+
+            var skinCircle = new SkinCircle(radiusSkinCircle);
+            var result = new SkinRectangle(sidesSkinRectangle, skinCircle);
         }
 
         /// <summary>
@@ -41,9 +47,10 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void Test_GetArea()
         {
-            var sidesList = new List<double> { 6, 8, 6, 8 };
-            var rectangle = new SkinRectangle(sidesList);
-            double result = rectangle.GetArea();
+            var sidesSkinRectangle = new List<double> { 6, 8, 6, 8 };
+
+            var skinRectangle = new SkinRectangle(sidesSkinRectangle);
+            double result = skinRectangle.GetArea();
             double actualResult = 48;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
@@ -54,9 +61,10 @@ namespace EPAM_Task3_Test.FiguresTest.SkinFiguresTest
         [TestMethod]
         public void Test_GetPerimeter()
         {
-            var sidesList = new List<double> { 6, 8 };
-            var rectangle = new SkinRectangle(sidesList);
-            double result = rectangle.GetPerimeter();
+            var sidesSkinRectangle = new List<double> { 6, 8 };
+
+            var skinRectangle = new SkinRectangle(sidesSkinRectangle);
+            double result = skinRectangle.GetPerimeter();
             double actualResult = 14;
             Assert.AreEqual(result, actualResult, 0.0000001);
         }
